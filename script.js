@@ -1,4 +1,3 @@
-// Hamburger Menu
 const mobileMenu = document.querySelector('#mobile-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -9,7 +8,6 @@ if(mobileMenu) {
     });
 }
 
-// Smooth Scroll Logic
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         if (this.getAttribute('href') !== "#") {
@@ -32,7 +30,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form Submission Alert
 const contactForm = document.querySelector('.contact-form');
 if(contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -42,7 +39,6 @@ if(contactForm) {
     });
 }
 
-// Ensure Date color is white via JS for extra protection
 document.querySelectorAll('.date').forEach(dateSpan => {
     dateSpan.style.color = "#ffffff";
 });
