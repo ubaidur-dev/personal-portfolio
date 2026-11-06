@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import "react-vertical-timeline-component/style.min.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-paper: #f6f3ec;
+  --color-card: #fffefb;
+  --color-ink: #111111;
+  --color-accent: #ff5a1f;
+  --color-line: rgb(17 17 17 / 0.1);
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-caret: caret 1s steps(1) infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes caret {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+html {
+  color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+@media (min-width: 1367px) {
+  html {
+    font-size: clamp(16px, 1.1713vw, 34px);
+  }
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  overscroll-behavior-y: none;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgb(255 90 31 / 0.28);
+  color: var(--color-ink);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: #111;
+  border-radius: 8px;
+  border: 2px solid var(--color-paper);
+}
+
+.glass {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+}
+
+.glow-purple {
+  box-shadow: 0 30px 70px -35px rgb(17 17 17 / 0.3);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(17 17 17 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(17 17 17 / 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, #000 40%, transparent 100%);
+}
+
+.spot {
+  position: relative;
+  isolation: isolate;
+}
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(255 90 31 / 0.11),
+    transparent 60%
+  );
+}
+.spot:hover::before {
+  opacity: 1;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-timeline {
+  overflow-x: clip;
+}
+.vertical-timeline::before {
+  background: var(--color-ink) !important;
+  width: 2px !important;
+}
+.vertical-timeline-element-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.vertical-timeline-element-content-arrow {
+  display: none !important;
+}
+.vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px var(--color-paper), 0 0 0 5px var(--color-ink) !important;
+}
+
+@media (max-width: 1169px) {
+  .vertical-timeline {
+    width: 100% !important;
+  }
+  .vertical-timeline-element-content {
+    margin-left: 61px !important;
+  }
+  .vertical-timeline-element-icon {
+    width: 40px !important;
+    height: 40px !important;
+    margin-left: 0 !important;
+    left: 5px !important;
+  }
+  .vertical-timeline::before {
+    left: 24px !important;
+  }
+}
+
+@supports not (overflow: clip) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-float {
+    animation: none;
+  }
+}
