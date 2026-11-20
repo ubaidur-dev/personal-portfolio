@@ -10,7 +10,7 @@ import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-export default function App() 
+export default function App() {
   useEffect(() => {
     const onMove = (e) => {
       const el = e.target.closest?.(".spot");
