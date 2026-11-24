@@ -377,9 +377,15 @@ export const education = [
   },
   {
     id: "intermediate",
-    degree: "Intermediate",
+    degree: "Intermediate in Pre-Engineering",
     institution: "Govt. Degree Boys College Gulistan-e-Jauhar",
-    date: "2018 – 2020",
+    date: "July 2018 – July 2020",
+  },
+  {
+    id: "matriculation",
+    degree: "Matriculation in Science",
+    institution: "PIA Model Higher Secondary School",
+    date: "May 2016 – May 2018",
   },
 ];
 
