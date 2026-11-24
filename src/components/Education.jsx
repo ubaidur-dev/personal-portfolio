@@ -17,7 +17,11 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass spot group flex gap-5 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-[0_24px_50px_-30px_rgb(17_17_17/0.45)] sm:p-7"
+              className={`glass spot group flex gap-5 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ink/30 hover:shadow-[0_24px_50px_-30px_rgb(17_17_17/0.45)] sm:p-7 ${
+                i === education.length - 1 && education.length % 2 === 1
+                  ? "sm:col-span-2 sm:mx-auto sm:w-1/2"
+                  : ""
+              }`}
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-lg text-paper transition-colors duration-300 group-hover:bg-accent">
                 <FaGraduationCap />
